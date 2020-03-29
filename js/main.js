@@ -45,15 +45,19 @@ document.addEventListener('click', () => {
     if (timeSinceLastClick <= rapidClickSpeed) {
         rapidClickCount++;
 
-        if (rapidClickCount > 1) {
+        if (rapidClickCount > 2) {
             rapidClickCount = 0;
 
-            timesClicked += 10;
+            timesClicked += 20;
             return false;
         }
+    } else {
+        rapidClickCount = 0;
     }
 
     timeSinceLastClick = 1;
+    if (paused) timesClicked++;
+
 
     if (paused && matched) {
         score += calculateScoreForLevel();
@@ -61,6 +65,9 @@ document.addEventListener('click', () => {
         currentLevelIndex++;
         window.cancelAnimationFrame(animationFrameHandle);
 
+        if (currentLevelIndex >= fetchedData.levels.length) {
+            endGame();
+        }
         initializeParameters(fetchedData.levels);
     }
 });
@@ -104,6 +111,7 @@ function startGame(gamemode) {
 function initializeParameters(data) {
     gameData.stepCount = data[currentLevelIndex].stepCount;
     gameData.speedFactor = data[currentLevelIndex].speedFactor;
+    timesClicked = 0;
 
     runLevel();
 }
@@ -120,9 +128,14 @@ function runLevel() {
 }
 
 function calculateScoreForLevel() {
-    let maxScore = 500 * (10 / currentLevelIndex + 1) * (currentLevelIndex + 1) + 2000;
+    let maxScore = (700 * Math.pow((currentLevelIndex + 1), 2)) + 2000;
 
-    return maxScore - timesClicked * 100;
+    return maxScore - (timesClicked > 10 ? 10 * timesClicked : Math.pow(timesClicked, 2)) * 379;
+}
+
+function endGame() {
+    document.querySelector('.game-header h1').innerHTML = `Your score: ${score}`;
+    document.querySelector('.game-area').innerHTML = `HUEHUE`;
 }
 
 startGame('normal');
