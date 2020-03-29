@@ -1,0 +1,37 @@
+{
+  "name": "Normal",
+  "levels": [
+    {
+      "speedFactor": 15,
+      "stepCount": 20
+    },
+    {
+      "speedFactor": 12,
+      "stepCount": 17
+    },
+    {
+      "speedFactor": 10,
+      "stepCount": 15
+    },
+    {
+      "speedFactor": 7,
+      "stepCount": 12
+    },
+    {
+      "speedFactor": 5,
+      "stepCount": 10
+    },
+    {
+      "speedFactor": 3,
+      "stepCount": 10
+    },
+    {
+      "speedFactor": 2,
+      "stepCount": 12
+    },
+    {
+      "speedFactor": 1,
+      "stepCount": 22
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+.wrapper {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.game-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-bottom: 1px solid red;
+}
+
+.game-header h1 {
+    font-family: 'Schoolbell', cursive;
+    font-size: 4em;
+    margin: 20px;
+}
+
+.game-area {
+    position: relative;
+}
+
+.matching {
+    position: absolute;
+    width: 240px;
+    height: 240px;
+}
+
+#matching-position {
+    border: 10px solid black;
+}
+
+#matching-element::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 220px;
+    height: 220px;
+
+    background-color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
