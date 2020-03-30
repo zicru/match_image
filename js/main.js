@@ -20,7 +20,7 @@ let header = document.querySelector('.game-header'),
     matched = false,
     score = 0,
     animationFrameHandle,
-    currentLevelIndex = 0,
+    currentLevelIndex = 7,
     timeSinceLastClick = 0,
     rapidClickCount = 0,
     rapidClickSpeed = 75,
@@ -134,8 +134,9 @@ function calculateScoreForLevel() {
 }
 
 function endGame() {
-    document.querySelector('.game-header h1').innerHTML = `Your score: ${score}`;
-    document.querySelector('.game-area').innerHTML = `HUEHUE`;
+    document.querySelector('#score').innerHTML = `${score}`;
+
+    document.querySelector('.finished').style.display = 'flex';
 }
 
 startGame('normal');

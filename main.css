@@ -10,6 +10,8 @@
 .wrapper {
     height: 100vh;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .game-header {
@@ -28,6 +30,7 @@
 
 .game-area {
     position: relative;
+    height: 100%;
 }
 
 .matching {
@@ -51,9 +54,40 @@
     background-color: red;
 }
 
+.finished {
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    z-index: 2;
+}
 
+.finished h1 {
+    font-family: 'Schoolbell', cursive;
+    font-size: 3em;
+    margin: 20px;
+    color: orangered;
+}
 
+.finished #restart {
+    font-family: 'Schoolbell', cursive;
+    font-size: 2em;
+    padding: .3em 1em;
+    border-radius: 20px;
+    border: 7px solid orangered;
+    background-color: orange;
+    color: orangered;
+    cursor: pointer;
+    transition: all .1s ease-in;
+}
 
+.finished #restart:hover {
+    transform: scale(1.05);
+    color: #fff;
+}
 
 
 
