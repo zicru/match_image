@@ -109,7 +109,7 @@ function moveIt() {
 function startGame(gamemode) {
     let xhr = new XMLHttpRequest();
 
-    xhr.open('POST',`level-data/${gamemode}-mode.json`, true);
+    xhr.open('GET',`level-data/${gamemode}-mode.json`, true);
     xhr.send();
 
     xhr.onreadystatechange = function() {
