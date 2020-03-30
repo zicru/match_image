@@ -1,0 +1,14 @@
+{
+  "name": "Hard",
+  "levels": [
+    {
+      "matchEveryPasses": 1,
+      "passSteps": [
+        0, 10, 30, 45, 55, 70, 85, 90, 95
+      ],
+      "matchSteps": [
+        0, 10, 25, 50, 55, 65, 80, 95, 100
+      ]
+    }
+  ]
+}
