@@ -138,7 +138,7 @@ function endGame() {
     document.querySelector('.game-area').innerHTML = `HUEHUE`;
 }
 
-startGame('normal');
+startGame('easy');
 
 
 
