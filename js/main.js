@@ -20,7 +20,7 @@ let header = document.querySelector('.game-header'),
     matched = false,
     score = 0,
     animationFrameHandle,
-    currentLevelIndex = 7,
+    currentLevelIndex = 0,
     timeSinceLastClick = 0,
     rapidClickCount = 0,
     rapidClickSpeed = 75,
@@ -67,9 +67,22 @@ document.addEventListener('click', () => {
 
         if (currentLevelIndex >= fetchedData.levels.length) {
             endGame();
+        } else {
+            initializeParameters(fetchedData.levels);
         }
-        initializeParameters(fetchedData.levels);
     }
+});
+
+document.querySelector('#restart').addEventListener('click', () => {
+    currentLevelIndex = 0;
+    score = 0;
+
+    document.querySelector('#score').innerHTML = `${score}`;
+
+    document.querySelector('.finished').style.display = 'none';
+    document.querySelector('.in-progress').style.display = 'block';
+
+    startGame('normal');
 });
 
 function moveIt() {
@@ -137,6 +150,7 @@ function endGame() {
     document.querySelector('#score').innerHTML = `${score}`;
 
     document.querySelector('.finished').style.display = 'flex';
+    document.querySelector('.in-progress').style.display = 'none';
 }
 
 startGame('normal');
